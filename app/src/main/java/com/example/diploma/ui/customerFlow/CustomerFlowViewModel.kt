@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class CustomerFlowViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "Поток клиентов за год"
+        value = "Возвращаемость, в %"
     }
     val text: LiveData<String> = _text
 }

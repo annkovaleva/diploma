@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/nav_customer_flow"
-        android:name="com.example.diploma.ui.repayment.RepaymentFragment"
+        android:name="com.example.diploma.ui.customerFlow.CustomerFlowFragment"
         android:label="@string/menu_returnability"
-        tools:layout="@layout/fragment_repayment" />
+        tools:layout="@layout/fragment_customer_flow" />
 </navigation>
