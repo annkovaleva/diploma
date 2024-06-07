@@ -2,15 +2,15 @@
     <!-- Base application theme. -->
     <style name="Theme.Diploma" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#111111</item>
-        <item name="colorPrimaryVariant">#111111</item>
-        <item name="colorOnPrimary">#DAEFE3</item>
+        <item name="colorPrimary">#666FE8</item>
+        <item name="colorPrimaryVariant">#666FE8</item>
+        <item name="colorOnPrimary">#F8F2FF</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">#9D0019</item>
-        <item name="colorSecondaryVariant">#222222</item>
-        <item name="colorOnSecondary">#DAEFE3</item>
+        <item name="colorSecondary">#0AB938</item>
+        <item name="colorSecondaryVariant">#666FE8</item>
+        <item name="colorOnSecondary">#F8F2FF</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">#111111</item>
+        <item name="android:statusBarColor">#666FE8</item>
         <!-- Customize your theme here. -->
     </style>
 

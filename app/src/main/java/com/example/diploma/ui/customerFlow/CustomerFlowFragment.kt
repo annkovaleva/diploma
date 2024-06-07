@@ -22,12 +22,14 @@ import com.github.mikephil.charting.formatter.ValueFormatter
 import android.os.Handler
 import android.os.Looper
 import android.widget.ProgressBar
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.components.LegendEntry
 import kotlin.random.Random
 
 class CustomerFlowFragment : Fragment() {
 
     private var _binding: FragmentCustomerFlowBinding? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -72,11 +74,19 @@ class CustomerFlowFragment : Fragment() {
         return root
     }
 
-    private fun setupCharts() {
+    override fun onResume() {
+        super.onResume()
+        // Устанавливаем спиннер на первый элемент при повторном открытии фрагмента
+        binding.Spinner.setSelection(0)
+        // Обновляем графики для первого элемента
         updateCharts(0)
     }
 
-    private fun updateCharts(position: Int) {
+    fun setupCharts() {
+        updateCharts(0)
+    }
+
+    fun updateCharts(position: Int) {
 
         // Создаем список данных для графика
         val data = when (position) {
@@ -132,13 +142,13 @@ class CustomerFlowFragment : Fragment() {
         }
 
         // Утсанавливаем цвета для графиков
-        dataSet1_1.color = Color.parseColor("#C8FEDA")
-        dataSet1_2.color = Color.parseColor("#57C920")
-        dataSet1_1.setGradientColor(Color.parseColor("#C8FEDA"), Color.parseColor("#57C920"))
-        dataSet1_2.setGradientColor(Color.parseColor("#57C920"), Color.parseColor("#57C920"))
-        dataSet2.color = Color.parseColor("#946DDE")
-        dataSet3_1.color = Color.parseColor("#FF7B12")
-        dataSet3_2.color = Color.parseColor("#2D54F3")
+        dataSet1_1.color = Color.parseColor("#8BB0F1")
+        dataSet1_2.color = Color.parseColor("#477CE4")
+        dataSet1_1.setGradientColor(Color.parseColor("#CCE2FB"), Color.parseColor("#477CE4"))
+        dataSet1_2.setGradientColor(Color.parseColor("#477CE4"), Color.parseColor("#477CE4"))
+        dataSet2.color = Color.parseColor("#00D8FF")
+        dataSet3_1.color = Color.parseColor("#1E2399")
+        dataSet3_2.color = Color.parseColor("#8BB0F1")
 
         // Устанавливаем размер текста и ширину графиков
         dataSet1_1.valueTextSize = 12f
@@ -182,6 +192,8 @@ class CustomerFlowFragment : Fragment() {
 
         // Устанавливаем описание для графика
         binding.bcRepayment.description.isEnabled = false
+
+        legend1.xEntrySpace = 40f
 
         binding.bcRepayment.invalidate()
 
@@ -244,11 +256,13 @@ class CustomerFlowFragment : Fragment() {
         xAxis.axisMaximum = 11.5f
 
         // Получаем объект легенды для LineChart
-        val legend = binding.lcCustomerFlow.legend
-        legend.textSize = 14f
+        val legend3 = binding.lcCustomerFlow.legend
+        legend3.textSize = 14f
 
         // Устанавливаем описание для LineChart
         binding.lcCustomerFlow.description.isEnabled = false
+
+        legend3.xEntrySpace = 40f
 
         binding.lcCustomerFlow.invalidate()
     }

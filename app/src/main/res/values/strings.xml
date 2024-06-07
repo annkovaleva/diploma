@@ -14,7 +14,9 @@
     <string name="FlowCustomersPerYear">Поток клиентов за год</string>
     <string name="NameCompany">TOPGUN</string>
     <string name="Address">Адрес: Проспект Медиков, 10–1</string>
-    <string name="CountEmployee">Сотрудников: 5</string>
+    <string name="CountEmployee">Сотрудников: 6</string>
     <string name="Adviсe">Реомендации</string>
     <string name="NoRecommendationsYet">Рекомендаций пока нет</string>
+    <string name="Update">Обновить</string>
+    <string name="NoInternetConnection">Нет интернет соединения</string>
 </resources>

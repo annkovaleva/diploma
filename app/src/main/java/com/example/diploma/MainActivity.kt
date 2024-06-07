@@ -15,6 +15,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.diploma.databinding.ActivityMainBinding
+import com.example.diploma.ui.NoInternetActivity
+import com.example.diploma.utils.NetworkUtils
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +30,10 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if (!NetworkUtils.isInternetAvailable(this)) {
+            showNoInternetScreen()
+        }
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
@@ -78,6 +84,19 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (!NetworkUtils.isInternetAvailable(this)) {
+            showNoInternetScreen()
+        }
+    }
+
+    private fun showNoInternetScreen() {
+        val intent = Intent(this, NoInternetActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
     }
 
     companion object {
